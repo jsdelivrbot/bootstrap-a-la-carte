@@ -5,6 +5,7 @@ const constants = require('./scripts/constants.js')
 var Nav = require('./components/nav.jsx')
 var BootstrapPre = require('./components/bootstrap-pre.jsx')
 require('./styles/index.scss')
+var Example = require('./components/example.jsx')
 
 
 let App = React.createClass({
@@ -19,7 +20,7 @@ let App = React.createClass({
   render: function () {
     let featureTitle = constants.elements[this.state.selectedElementIndex]
     return (
-      <div>
+      <div id="main-container">
         <Nav
           selectedElementIndex={ this.state.selectedElementIndex }
           liClicked={ this.changeSelectedElement }
@@ -28,6 +29,7 @@ let App = React.createClass({
           <div className="content">
             <h1>{ featureTitle }</h1>
             {/* TODO: Use the actual example rather than an image */}
+            <Example/>
             <img
               className="image-responsive"
               src={require('./images/navbar.png')}

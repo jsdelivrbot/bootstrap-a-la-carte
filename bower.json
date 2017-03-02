@@ -1,0 +1,26 @@
+{
+  "name": "bootstrap-a-la-carte",
+  "description": "Pick and choose different bootstrap components",
+  "main": "index.js",
+  "authors": [
+    "Ivan <pysoccerp@hotmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "bootstrap",
+    "webpack"
+  ],
+  "homepage": "https://github.com/gonzalezi2/bootstrap-a-la-carte",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

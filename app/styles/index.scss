@@ -32,6 +32,14 @@ body {
   outline: 1px solid #1d1f20;
 }
 
+#example {
+  all: initial;
+}
+
+.bootstrap {
+  @import 'bootstrap';
+}
+
 main {
   display: inline-block;
   padding: 25px;
