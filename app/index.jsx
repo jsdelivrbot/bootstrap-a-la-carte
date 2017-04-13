@@ -1,5 +1,8 @@
 var React = require('react')
 var ReactDOM = require('react-dom')
+var ReactDOMServer = require('react-dom/server')
+var htmlBeautify = require('js-beautify').html
+
 const constants = require('./scripts/constants.js')
 
 var SiteNav = require('./components/navigation.jsx')
@@ -19,7 +22,8 @@ let App = React.createClass({
   },
   render: function () {
     let featureTitle = constants.elementNames[this.state.selectedElementIndex]
-    let Pre = elements[featureTitle.replace(' ', '')]
+    let Snippet = elements[featureTitle.replace(' ', '')]
+    let snippetHtml = ReactDOMServer.renderToStaticMarkup(<Snippet/>)
 
     return (
       <div>
@@ -30,14 +34,11 @@ let App = React.createClass({
         <main>
           <div className="content">
             <h1>{ featureTitle }</h1>
-            {/* TODO: Use the actual example rather than an image */}
-            <img
-              className="image-responsive"
-              src={require('./images/navbar.png')}
-              alt="navbar example"
-            />
+            <Snippet/>
             <h2>Code Snippet</h2>
-            <Pre/>
+            <pre className="prettyprint">
+              {htmlBeautify(snippetHtml)}
+            </pre>
           </div>
         </main>
         <footer>

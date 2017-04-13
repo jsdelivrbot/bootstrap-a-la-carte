@@ -24,7 +24,7 @@ let Navigation = React.createClass({
   },
   render: function () {
     return (
-      <nav>
+      <nav className="site-nav">
         <h1 className="title">Bootstrap 4.0</h1>
         <ul id="elements">
           { constants.elementNames.map(this.createNavLi) }

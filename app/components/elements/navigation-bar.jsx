@@ -1,26 +1,31 @@
 var React = require('react')
-var ReactDOMServer = require('react-dom/server')
-var htmlBeautify = require('js-beautify').html
-import { Navbar, NavItem } from 'react-bootstrap'
+import { Navbar, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-
-let NavbarPre = React.createClass({
+let NavigationBar = React.createClass({
 
   render: function () {
-    const jsx = (
-      <Navbar>
-        <NavItem>Item 1</NavItem>
-        <NavItem>Item 2</NavItem>
-        <NavItem>Item 3</NavItem>
-      </Navbar>
-    )
-    const htmlString = ReactDOMServer.renderToStaticMarkup(jsx)
     return (
-      <pre className="prettyprint">
-        {htmlBeautify(htmlString)}
-      </pre>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#">Brand</a>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <NavItem eventKey={1} href="#">Link</NavItem>
+          <NavItem eventKey={2} href="#">Link</NavItem>
+          <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+            <MenuItem eventKey={3.1}>Action</MenuItem>
+            <MenuItem eventKey={3.2}>Another action</MenuItem>
+            <MenuItem eventKey={3.3}>Something else here</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey={3.4}>Separated link</MenuItem>
+          </NavDropdown>
+        </Nav>
+      </Navbar>
     )
   }
 })
 
-module.exports = NavbarPre
+module.exports = NavigationBar
